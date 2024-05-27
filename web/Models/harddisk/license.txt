@@ -1,0 +1,11 @@
+Model Information:
+* title:	Harddisk
+* source:	https://sketchfab.com/3d-models/harddisk-1ed2e3560e854fe2a2c028aa85ba8d6e
+* author:	Diyah Yustiana (https://sketchfab.com/diyahyustiana)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Harddisk" (https://sketchfab.com/3d-models/harddisk-1ed2e3560e854fe2a2c028aa85ba8d6e) by Diyah Yustiana (https://sketchfab.com/diyahyustiana) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	industrial equipment heat exchanger shell tube
+* source:	https://sketchfab.com/3d-models/industrial-equipment-heat-exchanger-shell-tube-146188c7a9fb444fa0e3c6bedba7838b
+* author:	e.font (https://sketchfab.com/e.font)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "industrial equipment heat exchanger shell tube" (https://sketchfab.com/3d-models/industrial-equipment-heat-exchanger-shell-tube-146188c7a9fb444fa0e3c6bedba7838b) by e.font (https://sketchfab.com/e.font) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

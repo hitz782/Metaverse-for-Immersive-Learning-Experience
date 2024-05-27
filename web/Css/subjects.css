@@ -1,0 +1,73 @@
+/* subjects.css */
+
+.container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   padding: 20px; /* Add padding around the container */ 
+}
+
+.subject-container {
+   width: calc(25% - 40px); /* Set width for four containers in a row with margin and padding */
+   height: 220px; /* Set a fixed height for the subject container */
+   margin-bottom: 75px; /* Add margin between rows */
+   background-color: rgba(211, 211, 211, 0.7); /* Opaque grey background */
+   border: 1px solid grey;
+   padding: 20px;
+   box-sizing: border-box; /* Include padding in width calculation */
+   text-align: center;
+   position: relative;
+   transition: transform 0.3s ease; /* Add transition for hover effect */
+   display: flex; /* Use flexbox */
+   flex-direction: column; /* Stack child elements vertically */
+   justify-content: space-between; /* Distribute space evenly between child elements */
+}
+.subject-container:hover {
+   transform: scale(1.05); /* Scale up the container on hover */
+   box-shadow: 0 0 20px rgb(13, 249, 206); /* Change shadow color to rgb(13, 249, 206) */
+}
+
+.subject-container img {
+   max-width: 80%; /* Set maximum width relative to container */
+   max-height: 70%; /* Set maximum height relative to container */
+   margin: auto; /* Center the image vertically and horizontally */
+   margin-bottom: -10px; /* Add equal padding to the bottom of the image */
+}
+
+.subject-name {
+   color: black;
+   font-weight: bold;
+   position: absolute;
+   bottom: 20px; /* Position subject name at the bottom with a bit of padding */
+   left: 50%;
+   transform: translateX(-50%);
+   width: 100%; /* Ensure the subject name spans the entire width of the container */
+   white-space: nowrap; /* Prevent subject name from wrapping to a new line */
+   overflow: hidden; /* Hide any overflow */
+   text-overflow: ellipsis; /* Add ellipsis for text overflow */
+   background: none;
+}
+
+
+.heading {
+   text-align: left;
+   margin: 20px 0px 20px 20px;
+   font-family: "Poppins", sans-serif;
+   font-weight: bold;
+   font-size: 24px;
+   background: linear-gradient(to right, rgb(13, 249, 206), rgb(95, 16, 216));
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
+@media (max-width: 768px) {
+   .container {
+       flex-direction: column; /* Stack subjects vertically on smaller screens */
+       align-items: center;
+   }
+
+   .subject-container {
+       width: 100%; /* Take full width on smaller screens */
+   }
+}

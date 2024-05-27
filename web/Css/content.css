@@ -1,0 +1,302 @@
+/* content.css */
+
+/**{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}*/
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f0f0;
+    position: relative; /* Added position relative to body for centering */
+}
+
+.header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    list-style: none;
+}
+
+.start-logo {
+    background: linear-gradient(to right, rgb(13, 249, 206), rgb(95, 16, 216));
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 25px;
+    color: transparent;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 40px;
+}
+
+.nav_links a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.nav_links a:hover {
+    color: #e6920b;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: #4DDBFF;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #FFF338;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    margin-left: 80px;
+    position: relative;
+}
+
+.topic-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.topic-heading h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.topic-description {
+    margin-bottom: 20px;
+}
+
+.topic-description p {
+    font-size: 18px;
+    color: #666;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.content-left,
+.content-right {
+    flex-basis: calc(50% - 20px);
+}
+
+.content-left img,
+.content-right img {
+    width: 100%;
+    height: auto;
+}
+
+.content-left p,
+.content-right p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Styles for Sticky Button and Floating Options */
+
+.sticky-container {
+    position: fixed;
+    left: 30px; /* Adjusted to leftmost of the page */
+    bottom: 50%;
+    transform: translateY(50%);
+    z-index: 9999;
+}
+
+.sticky-button {
+    width: 60px;
+    height: 60px;
+    background-color: #4DDBFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    left: -20px; /* Adjusted to leftmost of the page */
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.sticky-button i {
+    color: #fff;
+}
+
+.sticky-button:hover {
+    background-color: #FFF338;
+}
+
+.floating-options {
+    position: absolute;
+    display: none;
+    bottom: -100px;
+    left: 50px;
+    width: 200px;
+    z-index: 9998;
+    background: none;/* Ensure the options are above other content */
+}
+
+.floating-options.active {
+    display: block;
+}
+
+.float-option {
+    display: flex;
+    flex-direction: column; /* Stack the icon and text vertically */
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #4DDBFF;
+    border-radius: 60%;
+    margin: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+    top: 75px;
+    transition: background-color 0.3s ease;
+}
+.float-option img {
+    max-width: 60%;
+    max-height: 60%;
+    border-color: black;
+    border-radius: 5px;
+    background-color: transparent; 
+}
+
+.float-option i {
+    color: black;
+    margin-bottom: 5px; /* Added margin to separate icon and text */
+}
+
+.float-option span {
+    color: black;
+    font-size: 11px; /* Adjust font size as needed */
+    background: none;
+}
+
+.float-option:hover {
+    background-color: #FFF338;
+}
+
+.sticky-button.active + .floating-options,
+.floating-options.active {
+    display: block;
+}
+
+/* Tooltip */
+.float-option {
+    position: relative; /* Added relative positioning */
+}
+
+.float-option::before {
+    content: attr(title); /* Set tooltip content */
+    position: absolute;
+    bottom: 100%; /* Position above the button */
+    left: 50%; /* Position at the center of the button */
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear; /* Transition for smooth appearance */
+}
+.sticky-button::before {
+    content: attr(title);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+     top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    opacity: 0; /* Initially hide the tooltip */
+    transition: opacity 0.3s ease; /* Add transition for smoother appearance */
+}
+
+.sticky-button:hover::before {
+    opacity: 1; /* Show the tooltip on hover */
+}
+
+
+.float-option:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+ .explore-text {
+        position: absolute;
+        top: -150px; /* Adjust the top position as needed */
+        left: 10px;;
+        transform: translateX(-50%);
+        text-align: center;
+       white-space: normal;
+       font-size: 14px;
+    }
+    /* content.css */
+
+.feedback {
+    position: relative;
+    bottom: 10px;
+    left: 980px;
+    display: flex;
+    align-items: center;
+     background-color: #4DDBFF;
+    padding: 10px;
+    border-radius: 0;
+    width: 200px;
+    height: 60px;
+    transition: background-color 0.3s ease;
+}
+
+.feedback a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.feedback-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    right:10px;
+}
+
+.feedback-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.feedback:hover {
+    background-color: rgb(13,249,206);
+}
+
