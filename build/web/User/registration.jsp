@@ -70,9 +70,16 @@
                 transform: translate(-50%, -50%); /* Center the image horizontally and vertically */
                 max-width: 50%; /* Adjust the maximum width of the image */
             }
+            #login-button{
+                position:relative;
+                top: 550px;
+                width: 70px;
+                left: 360px;
+            }
         </style>
     </head>
     <body>
+        <button id="login-button" class="btn btn-primary" onclick="window.location.href = 'login.jsp';">Login</button>
         <div class="registration-form">
             <img src="../Images/signup.png" alt="Sign Up" class="signup-img"> <!-- Add the signup image -->
             <div class="registration-frame">

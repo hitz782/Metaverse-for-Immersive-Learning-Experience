@@ -20,7 +20,6 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -42,24 +41,25 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int userId=0;
-        String Password="";
+        int userId = 0;
+        String dbPassword = "";
         String username = request.getParameter("username");
         String email = request.getParameter("email");
-        String Userpassword = request.getParameter("password");
-        String connectionString="jdbc:mysql://localhost/eduverse";
+        String userPassword = request.getParameter("password");
+        String connectionString = "jdbc:mysql://localhost/eduverse";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(connectionString,"root","root@123");
-            Statement stmt=con.createStatement();
-            
+            Connection con = DriverManager.getConnection(connectionString, "root", "root@123");
+            Statement stmt = con.createStatement();
+
             String sql = "";
             if (username != null && !username.isEmpty()) {
                 // If username is provided, validate using username
-                sql = "select * from user where Username='" + username + "'";
+                sql = "SELECT * FROM user WHERE Username='" + username + "' OR Email='" + username + "'";
             } else if (email != null && !email.isEmpty()) {
                 // If email is provided, validate using email
-                sql = "select * from user where Email='" + email + "'";
+                sql = "SELECT * FROM user WHERE Email='" + email + "'";
             } else {
                 // Handle case where neither username nor email is provided
                 response.setContentType("text/html;charset=UTF-8");
@@ -69,19 +69,26 @@ public class LoginServlet extends HttpServlet {
                 }
                 return; // Exit the method
             }
-            
+
             ResultSet result = stmt.executeQuery(sql);
             if (result.next()) {
                 userId = result.getInt("Id");
-                Password = result.getString("Password");
+                dbPassword = result.getString("Password");
+            } else {
+                response.setContentType("text/html;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<script>alert('Username or email not found');</script>");
+                    out.println("<script>window.location.href = 'User/login.jsp';</script>");
+                }
+                return;
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (Userpassword.equals(Password)) {
+
+        if (userPassword.equals(dbPassword)) {
             response.sendRedirect("User/home.jsp?userId=" + userId);
-        } else {    
+        } else {
             response.setContentType("text/html;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 out.println("<script>alert('Username or password is incorrect');</script>");
